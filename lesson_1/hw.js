@@ -1,0 +1,10 @@
+var siteName;
+var siteMenu = [];
+var numArticlePerPage;
+var heaArticle;
+var article;
+var importantArticle;
+var humorArticle;
+var articleIfSerious;
+var isPictureForArticle = false;
+var priceOfProduct;
