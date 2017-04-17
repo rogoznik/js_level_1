@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 2</title>
+</head>
+<body>
+    <!--Задание из объявления-->
+    <script>
+        //Задание 1.Найдите ошибки в коде и исправьте его.
+        sad = 'This is Sparta!!!';
+        result = true; //Значение есть результат или нет. Если есть true, если значения нет false
+        var entage = 20;
+        var header = 'Заголовок новой статьи';
+        zipCode = 983456;
+        prompt('Введите хоть что-нибудь');
+        alert('Вы точно все ввели?');
+        var var1 = 25;
+        var var2 = 'Орехов';
+        alert('Вы нашли ' + var1 + ' ' + var2);
+        var var3 = '45';
+        var var4 = 20;
+        console.log (parseInt(var3)+var4); // Этот результат проверить. Должно получиться 65.
+
+        //Задание 2.Определите типы следующих переменных:
+        var art = "25 / 5"; //string
+        var same = null; //null
+        var scoop; //undefined
+        var flag = 0; //number
+        var plat = true; //boolean
+        var devid = 34 / 7; //number
+        var person = {lastname: 'Ivan'}; //object
+        var fruits = ['apple']; //массив(array) typeof() определит как object
+        var iceCream = function() { alert('Я люблю мороженое'); }; //function
+
+        //Задание 3.Найдите длину следующих строк:
+        alert('JavaScript is a high-level, dynamic, untyped, and interpreted programming language'.length); //82
+        alert('Netscape Communications realized that the Web needed to become more dynamic'.length);//75
+        alert('JavaScript was realized in ten days'.length);//35
+
+        //Задание 4.Выведите следующие строки в верхнем регистре. Результат присвойте переменной.
+        var str1 = 'console.log'.toUpperCase();
+        var str2 = 'Hello World!'.toUpperCase();
+        var str3 = 'I need more code on JavaScript'.toUpperCase();
+        alert(str1 + '\n' + str2 + '\n' + str3);
+
+        //Задание 5.Переменные из предыдущего задания преобразуйте в нижний регистр.
+        str1 = str1.toLowerCase();
+        str2 = str2.toLowerCase();
+        str3 = str3.toLowerCase();
+        alert(str1 + '\n' + str2 + '\n' + str3);
+
+        //Задание 6.Преобразуйте в верхний регистр, только первые буквы.
+        str1 = str1[0].toUpperCase() + str1.substr(1, str1.length-1);
+        str2 = str2[0].toUpperCase() + str2.substr(1, str2.length-1);
+        str3 = str3[0].toUpperCase() + str3.substr(1, str3.length-1);
+        alert(str1 + '\n' + str2 + '\n' + str3);
+    </script>
+    <a href="page2.html">Задание из методички. Угадай число</a>
+    <a href="page3.html">Задание из методички. Остальные</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lesson 2</title>
+</head>
+<body>
+    <!--Задание из методички. Угадай число-->
+    <script>
+        var rand = 0;
+        var numOfAttempts = 0;
+        var userChoice = 0;
+
+        while (true) {
+            if (numOfAttempts == 0){
+                alert('Начнем игру!\nВам предстоит угадать число от 1000 до 9999');
+                rand = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+            }
+            userChoice = parseInt(prompt('Введите число от 1000 до 9999'));
+            if (userChoice == rand) {
+                alert('Вы угадали! ПОЗДРАВЛЯЮ!!!');
+                numOfAttempts = 0;
+            } else {
+                numOfAttempts++;
+                alert('Вы не угадали. Попробуйте еще раз.');
+            }
+        }
+    </script>
+</body>
+</html>
