@@ -2,9 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+        <h3>Натуральные числа</h3>
+        <input type="number" placeholder="Введите число" name="num">
+        <button onclick="naturalNumber()">Проверка</button>
+        <p name="result">Результат будет тут</p>
+    </div>
+    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+        <h3>Побитовые опрерации</h3>
+        <input type="number" placeholder="Введите число" name="num1">
+        <input type="number" placeholder="Введите число" name="num2">
+        <button onclick="bitAND()">&</button>
+        <button onclick="bitOR()">|</button>
+        <button onclick="bitXOR()">^</button>
+        <button onclick="bitNegation()">~</button>
+        <button onclick="bitLeft()"><<</button>
+        <button onclick="bitRight()">>></button>
+        <button onclick="bitRightZero()">>>></button>
+        <p>Первое число в двоичном виде:&nbsp;<span name="numBit1"></span></p>
+        <p>Второе число в двоичном виде:&nbsp;<span name="numBit2"></span></p>
+        <p>Результат в двоичном виде:&nbsp;<span name="resultBit"></span></p>
+        <p>Результат:&nbsp;<span name="result"></span></p>
+    </div>
+
+    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+        <h3>Генератор пароля</h3>
+        <label for="numChars">Количество символов</label>
+        <input type="number" placeholder="Количество символов" name="numChars" id="numChars" value="4"><br>
+        <button onclick="genPass()">Сгенерировать</button><br>
+        <label for="pass">Сгенерированный пароль</label>
+        <input type="text" name="pass" id="pass">
+
+    </div>
+
+    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+        <h3>Последняя буква в слове заглавная</h3>
+        <input type="text" placeholder="Введите слово" name="word">
+        <button onclick="lastChar()">Преобразовать</button>
+        <p name="lastCharResult">Результат будет тут</p>
+    </div>
+
+    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+        <h3>Преобразовать asd_asd_asd в asdAsdAsd</h3>
+        <input type="text" placeholder="Введите строку" name="str">
+        <button onclick="toCamelCase()">Преобразовать</button>
+        <p name="camelCaseResult">Результат будет тут</p>
+    </div>
+
+
+    <script src="script.js"></script>
 </body>
 </html>
