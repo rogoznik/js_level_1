@@ -110,6 +110,7 @@ function bitXOR() {
 function bitNOT() {
     var num1 = parseInt(document.getElementsByName('num1')[0].value);
     document.getElementsByName('numBin1')[0].innerHTML = toBinary(num1);
+    document.getElementsByName('numBin2')[0].innerHTML = '';
     var s = toBinary(num1);
     var res = '';
     for (var i = 0; i < s.length; i++) {
