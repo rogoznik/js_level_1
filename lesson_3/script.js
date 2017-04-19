@@ -1,4 +1,4 @@
-
+//натуральные числа
 function naturalNumber() {
     var num = parseFloat(document.getElementsByName('num')[0].value);
     if (num > 0) {
@@ -15,9 +15,11 @@ function naturalNumber() {
         document.getElementsByName('result')[0].innerHTML = 'Это не натуральное число';
     }
 }
+//целое ли число
 function isInt(num) {
     return num % 1 == 0;
 }
+//простое ли число
 function isSimpleNum(num) {
     var result;
     if (num == 1) {
@@ -35,6 +37,7 @@ function isSimpleNum(num) {
     return result;
 }
 
+//генератор пароля
 function genPass(){
     var numChars = parseInt(document.getElementsByName('numChars')[0].value);
     var abc = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz012345678!@#$%()*-+,.?';
@@ -49,6 +52,7 @@ function rand(max) {
     return Math.floor(Math.random() * (max));
 }
 
+//последния бква слова БОЛЬШАЯ
 function lastChar(){
     var word = document.getElementsByName('word')[0].value;
     if (word.length == 0) {
@@ -59,6 +63,7 @@ function lastChar(){
 
 }
 
+//из asd_asd_asd в asdAsdAsd
 function toCamelCase() {
     var str = document.getElementsByName('str')[0].value.split('_');
     var result = str[0];
