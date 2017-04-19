@@ -1,3 +1,4 @@
+
 function naturalNumber() {
     var num = parseFloat(document.getElementsByName('num')[0].value);
     if (num > 0) {
@@ -73,8 +74,54 @@ function toCamelCase() {
 function bitAND(){
     var num1 = parseInt(document.getElementsByName('num1')[0].value);
     var num2 = parseInt(document.getElementsByName('num2')[0].value);
-    document.getElementsByName('numBit1')[0].innerHTML = toBinary(num1);
-    document.getElementsByName('numBit2')[0].innerHTML = num2.toString(2);
+    document.getElementsByName('numBin1')[0].innerHTML = toBinary(num1);
+    document.getElementsByName('numBin2')[0].innerHTML = toBinary(num2);
+    document.getElementsByName('resultBin')[0].innerHTML = toBinary((num1 & num2));
+    document.getElementsByName('result')[1].innerHTML = num1 & num2;
+    document.getElementById('tableAND').style.display = 'table-cell';
+    document.getElementById('tableOR').style.display = 'none';
+    document.getElementById('tableXOR').style.display = 'none';
+    document.getElementById('tableNOT').style.display = 'none';
+}
+function bitOR() {
+    var num1 = parseInt(document.getElementsByName('num1')[0].value);
+    var num2 = parseInt(document.getElementsByName('num2')[0].value);
+    document.getElementsByName('numBin1')[0].innerHTML = toBinary(num1);
+    document.getElementsByName('numBin2')[0].innerHTML = toBinary(num2);
+    document.getElementsByName('resultBin')[0].innerHTML = toBinary((num1 | num2));
+    document.getElementsByName('result')[1].innerHTML = num1 | num2;
+    document.getElementById('tableAND').style.display = 'none';
+    document.getElementById('tableOR').style.display = 'table-cell';
+    document.getElementById('tableXOR').style.display = 'none';
+    document.getElementById('tableNOT').style.display = 'none';
+}
+function bitXOR() {
+    var num1 = parseInt(document.getElementsByName('num1')[0].value);
+    var num2 = parseInt(document.getElementsByName('num2')[0].value);
+    document.getElementsByName('numBin1')[0].innerHTML = toBinary(num1);
+    document.getElementsByName('numBin2')[0].innerHTML = toBinary(num2);
+    document.getElementsByName('resultBin')[0].innerHTML = toBinary((num1 ^ num2));
+    document.getElementsByName('result')[1].innerHTML = num1 ^ num2;
+    document.getElementById('tableAND').style.display = 'none';
+    document.getElementById('tableOR').style.display = 'none';
+    document.getElementById('tableXOR').style.display = 'table-cell';
+    document.getElementById('tableNOT').style.display = 'none';
+}
+function bitNOT() {
+    var num1 = parseInt(document.getElementsByName('num1')[0].value);
+    document.getElementsByName('numBin1')[0].innerHTML = toBinary(num1);
+    var s = toBinary(num1);
+    var res = '';
+    for (var i = 0; i < s.length; i++) {
+        res += s[i] == '0' ? '1' : '0';
+    }
+
+    document.getElementsByName('resultBin')[0].innerHTML = res;
+    document.getElementsByName('result')[1].innerHTML = ~num1;
+    document.getElementById('tableAND').style.display = 'none';
+    document.getElementById('tableOR').style.display = 'none';
+    document.getElementById('tableXOR').style.display = 'none';
+    document.getElementById('tableNOT').style.display = 'table-cell';
 }
 function toBinary(num){
     var a = num;
@@ -88,8 +135,14 @@ function toBinary(num){
         num = a;
     }
     str += a;
-    for (var i = str.length-1; i >=0; i--){
-        result += str[i];
+    for (var i = 0; i < 32-str.length; i++) {
+        result += '0';
     }
+    for (var j = str.length-1; j >=0; j--){
+        result += str[j];
+    }
+
+
+
     return result;
 }

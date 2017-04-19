@@ -2,50 +2,98 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
     <title>Title</title>
 </head>
 <body>
-    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+    <div class="div">
         <h3>Натуральные числа</h3>
         <input type="number" placeholder="Введите число" name="num">
         <button onclick="naturalNumber()">Проверка</button>
         <p name="result">Результат будет тут</p>
     </div>
-    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
-        <h3>Побитовые опрерации</h3>
-        <input type="number" placeholder="Введите число" name="num1">
-        <input type="number" placeholder="Введите число" name="num2">
-        <button onclick="bitAND()">&</button>
-        <button onclick="bitOR()">|</button>
-        <button onclick="bitXOR()">^</button>
-        <button onclick="bitNegation()">~</button>
-        <button onclick="bitLeft()"><<</button>
-        <button onclick="bitRight()">>></button>
-        <button onclick="bitRightZero()">>>></button>
-        <p>Первое число в двоичном виде:&nbsp;<span name="numBit1"></span></p>
-        <p>Второе число в двоичном виде:&nbsp;<span name="numBit2"></span></p>
-        <p>Результат в двоичном виде:&nbsp;<span name="resultBit"></span></p>
-        <p>Результат:&nbsp;<span name="result"></span></p>
+    <div style="display: table-row; margin-bottom: 10px;">
+        <div class="div" style="display: table-cell; border-collapse: collapse">
+            <h3>Побитовые опрерации</h3>
+            <input type="number" placeholder="Введите число" name="num1">
+            <input type="number" placeholder="Введите число" name="num2"><br>
+            <button onclick="bitAND()">&</button>
+            <button onclick="bitOR()">|</button>
+            <button onclick="bitXOR()">^</button>
+            <button onclick="bitNOT()">~</button>
+            <p>Первое число в двоичном виде:&nbsp;<code name="numBin1"></code></p>
+            <p>Второе число в двоичном виде:&nbsp;<code name="numBin2"></code></p>
+            <p>Результат в двоичном виде:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code name="resultBin"></code></p>
+            <p>Результат:&nbsp;<code name="result"></code></p>
+        </div>
+        <div id="tableAND" class="div" style="display: none;">
+            <p>Выполняет операцию И над каждой парой бит.</p>
+            <p>Результат <code>a &amp; b</code> равен единице только когда оба бита
+                <code>a</code> и <code>b</code> равны единице.</p>
+            <p>Таблица истинности для <code>&amp;</code>:</p>
+            <table>
+                <tr><th><code>a</code></th><th><code>b</code></th><th><code>a & b</code></th></tr>
+                <tr><td><code>0</code></td><td><code>0</code></td><td><code>0</code></td></tr>
+                <tr><td><code>0</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+                <tr><td><code>1</code></td><td><code>0</code></td><td><code>0</code></td></tr>
+                <tr><td><code>1</code></td><td><code>1</code></td><td><code>1</code></td></tr>
+            </table>
+        </div>
+        <div id="tableOR" class="div" style="display: none;">
+            <p>Выполняет операцию ИЛИ над каждой парой бит. Результат <code>a | b</code> равен 1, если хотя бы один бит из
+            <code>a,b</code> равен 1.</p>
+            <p>Таблица истинности для <code>|</code>:</p>
+            <table class="standard-table">
+                <tr><th><code>a</code></th><th><code>b</code></th><th><code>a | b</code></th></tr>
+                <tr><td><code>0</code></td><td><code>0</code></td><td><code>0</code></td></tr>
+                <tr><td><code>0</code></td><td><code>1</code></td><td><code>1</code></td></tr>
+                <tr><td><code>1</code></td><td><code>0</code></td><td><code>1</code></td></tr>
+                <tr><td><code>1</code></td><td><code>1</code></td><td><code>1</code></td></tr>
+            </table>
+        </div>
+        <div id="tableXOR" class="div" style="display: none;">
+            <p>Выполняет операцию «Исключающее ИЛИ» над каждой парой бит.</p>
+            <p><code>a</code> Исключающее ИЛИ <code>b</code> равно 1, если только <code>a=1</code> или только <code>b=1</code>, но не оба одновременно <code>a=b=1</code>.</p>
+            <p>Таблица истинности для исключающего ИЛИ:</p>
+            <table class="standard-table">
+                <tr><th><code>a</code></th><th><code>b</code></th><th><code>a ^ b</code></th></tr>
+                <tr><td><code>0</code></td><td><code>0</code></td><td><code>0</code></td></tr>
+                <tr><td><code>0</code></td><td><code>1</code></td><td><code>1</code></td></tr>
+                <tr><td><code>1</code></td><td><code>0</code></td><td><code>1</code></td></tr>
+                <tr><td><code>1</code></td><td><code>1</code></td><td><code>0</code></td></tr>
+            </table>
+        </div>
+        <div id="tableNOT" class="div" style="display: none;">
+            <p>Производит операцию НЕ над каждым битом, заменяя его на обратный ему.</p>
+            <p>Таблица истинности для НЕ:</p>
+            <table class="standard-table">
+                <tr><th><code>a</code></th><th><code>~a</code></th></tr>
+                <tr><td><code>0</code></td><td><code>1</code></td></tr>
+                <tr><td><code>1</code></td><td><code>0</code></td></tr>
+            </table>
+        </div>
+
+
     </div>
 
-    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+
+    <div class="div" style="margin-top: 10px;">
         <h3>Генератор пароля</h3>
         <label for="numChars">Количество символов</label>
         <input type="number" placeholder="Количество символов" name="numChars" id="numChars" value="4"><br>
         <button onclick="genPass()">Сгенерировать</button><br>
         <label for="pass">Сгенерированный пароль</label>
         <input type="text" name="pass" id="pass">
-
     </div>
 
-    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+    <div class="div">
         <h3>Последняя буква в слове заглавная</h3>
         <input type="text" placeholder="Введите слово" name="word">
         <button onclick="lastChar()">Преобразовать</button>
         <p name="lastCharResult">Результат будет тут</p>
     </div>
 
-    <div style="border: 1px solid black; width: 500px; padding: 10px; margin-bottom: 10px;">
+    <div class="div">
         <h3>Преобразовать asd_asd_asd в asdAsdAsd</h3>
         <input type="text" placeholder="Введите строку" name="str">
         <button onclick="toCamelCase()">Преобразовать</button>
