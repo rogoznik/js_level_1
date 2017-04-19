@@ -8,21 +8,36 @@
     <!--Задание из методички. Угадай число-->
     <script>
         var rand = 0;
-        var numOfAttempts = 0;
+        var numOfAttempts = 1;
         var userChoice = 0;
 
-        while (true) {
-            if (numOfAttempts == 0){
-                alert('Начнем игру!\nВам предстоит угадать число от 1000 до 9999');
+        alert('Начнем игру!\nВам предстоит угадать число от 1000 до 9999');
+        guessNumber();
+
+        function guessNumber() {
+            if (numOfAttempts == 1){
                 rand = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
             }
-            userChoice = parseInt(prompt('Введите число от 1000 до 9999'));
+            userChoice = parseInt(prompt('Попытка ' + numOfAttempts + '\nВведите число от 1000 до 9999'), 0);
             if (userChoice == rand) {
                 alert('Вы угадали! ПОЗДРАВЛЯЮ!!!');
-                numOfAttempts = 0;
+                numOfAttempts = 1;
+                guessNumber();
+            } else if (userChoice == 0 || isNaN(userChoice)) {
+                alert('Вы не ввели число');
+                guessNumber();
+            }else if (userChoice == -1) {
+                alert ('Спасибо за игру.');
             } else {
-                numOfAttempts++;
-                alert('Вы не угадали. Попробуйте еще раз.');
+                if (userChoice > rand) {
+                    alert('Ваше число больше. Попробуйте еще раз.');
+                    numOfAttempts++;
+                } else if (userChoice < rand) {
+                    alert('Ваше число меньше. Попробуйте еще раз.');
+                    numOfAttempts++;
+
+                }
+                guessNumber();
             }
         }
     </script>
