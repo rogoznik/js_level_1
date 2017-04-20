@@ -7,6 +7,18 @@
 </head>
 <body>
     <div class="div">
+        <h3>Калькулятор</h3>
+        <input type="number" placeholder="Введите число" id="calc1">
+        <input type="number" placeholder="Введите число" id="calc2" style="display: none"><br>
+        <span id="act"></span>
+        <button onclick="calc('summ')">+</button>
+        <button onclick="calc('diff')">-</button>
+        <button onclick="calc('div')">/</button>
+        <button onclick="calc('mult')">*</button>
+        <button onclick="calc('result')">=</button>
+        <button onclick="calc('clear')">C</button>
+    </div>
+    <div class="div">
         <h3>Натуральные числа</h3>
         <input type="number" placeholder="Введите число" name="num">
         <button onclick="naturalNumber()">Проверка</button>

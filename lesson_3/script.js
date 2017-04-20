@@ -1,3 +1,40 @@
+//калькулятор
+function calc(func) {
+    var calc1 = document.getElementById('calc1');
+    var calc2 = document.getElementById('calc2');
+    var a;
+    var b;
+    var act = document.getElementById('act');
+    if ((func == 'summ') || (func == 'diff') || (func == 'div') || (func == 'mult')){
+         act.value = func;
+         calc1.style.display = 'none';
+         calc2.style.display = 'inline-block';
+    }
+    if (func == 'result') {
+        a = parseFloat(calc1.value);
+        b = parseFloat(calc2.value);
+        if (act.value == 'summ') {
+            calc2.value = a + b;
+        }
+        if (act.value == 'diff') {
+            calc2.value = a - b;
+        }
+        if (act.value == 'div') {
+            calc2.value = a / b;
+        }
+        if (act.value == 'mult') {
+            calc2.value = a * b;
+        }
+    }
+    if (func == 'clear') {
+        calc1.style.display = 'inline-block';
+        calc1.value ='';
+        calc2.style.display = 'none';
+        calc2.value ='';
+    }
+
+}
+
 //натуральные числа
 function naturalNumber() {
     var num = parseFloat(document.getElementsByName('num')[0].value);
