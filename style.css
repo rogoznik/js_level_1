@@ -1,0 +1,23 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: #696969;
+}
+.menu {
+    width: 500px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.link {
+    text-decoration: none;
+}
+.button {
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    background: linear-gradient(to bottom, #1e5799 0%,#2989d8 100%,#207cca 100%,#7db9e8 100%);
+}
