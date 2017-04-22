@@ -53,7 +53,7 @@ function showTask3(num) {
     var res = document.getElementById('result3');
     res.innerHTML += (num + ' ');
     for (var i = 0; i <= num; i++){}
-    if (i <= 10) {
+    if (i < 10) {
         showTask3(i);
     }
 }
