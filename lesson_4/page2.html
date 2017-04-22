@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var rand = 0;
+        var numOfAttempts = 1;
+        var userChoice = 0;
+        var bulls = 0;
+        var cows = 0;
+
+        alert('Начнем игру!\nВам предстоит угадать число от 1000 до 9999');
+        guessNumber();
+
+        function guessNumber() {
+            if (numOfAttempts == 1){
+                rand = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
+            }
+            userChoice = parseInt(prompt('Попытка ' + numOfAttempts + '\nВведите число от 1000 до 9999\n' + rand), 0);
+            if (userChoice == rand) {
+                alert('Вы угадали! ПОЗДРАВЛЯЮ!!!');
+                numOfAttempts = 1;
+                bulls = 0;
+                cows = 0;
+                guessNumber();
+            } else if (userChoice == 0 || isNaN(userChoice)) {
+                alert('Вы не ввели число');
+                guessNumber();
+            }else if (userChoice == -1) {
+                alert ('Спасибо за игру.');
+            } else {
+                if (userChoice > rand) {
+                    numOfBullsCows(userChoice.toString(), rand.toString());
+                    alert('Ваше число больше. Попробуйте еще раз.\n' + bulls + ' быков, ' + cows + ' коров');
+                    numOfAttempts++;
+                } else if (userChoice < rand) {
+                    numOfBullsCows(userChoice.toString(), rand.toString());
+                    alert('Ваше число меньше. Попробуйте еще раз.\n' + bulls + ' быков, ' + cows + ' коров');
+                    numOfAttempts++;
+
+                }
+                guessNumber();
+            }
+        }
+
+        function numOfBullsCows(num1, num2) {
+            bulls = 0;
+            cows = 0;
+            for (var i = 0; i < num1.length; i++){
+                for (var j = 0; j < num2.length; j++){
+                    if (num1[i] == num2[j]){
+                        if (i == j){
+                            bulls++;
+                        } else {
+                            cows++;
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

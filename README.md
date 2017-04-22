@@ -16,3 +16,11 @@
   index.html - просмотр всех задач
   
   script.js - фукции для решения всех задач
+  
+  # Lesson 4
+  
+  index.html - все задания
+  
+  script.js - все функции
+  
+  page2.html - быки и коровы
